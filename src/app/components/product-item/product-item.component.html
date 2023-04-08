@@ -1,0 +1,19 @@
+<div class="product-container">
+  <input
+    type="image"
+    class="product-image"
+    [src]="product.url"
+    (click)="showProduct(product)"
+  />
+
+  <h4>{{ product.name }}</h4>
+  <p>$ {{ product.price }}</p>
+
+  <select class="select-input" name="amount" [(ngModel)]="product.amount">
+    <option *ngFor="let i of amountList" [value]="i">{{ i }}</option>
+  </select>
+
+  <button class="btn btn-primary select-input" (click)="addToCart(product)">
+    Add to cart
+  </button>
+</div>
