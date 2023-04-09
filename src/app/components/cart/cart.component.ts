@@ -18,7 +18,13 @@ export class CartComponent implements OnInit {
     this.updateTotalAmount();
   }
 
+  updateCartAmount(cart: Product): void {
+    if (cart.amount <= 0) this.cartList = this.cartService.deleteFromCart(cart);
+    this.updateTotalAmount();
+  }
+
   updateTotalAmount(): void {
+    this.totalAmount = 0;
     this.cartList.map((cart) => (this.totalAmount += cart.price * cart.amount));
   }
 }

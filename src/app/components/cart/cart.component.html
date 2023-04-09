@@ -13,11 +13,12 @@
               class="form-control number-input"
               id="amountInput"
               [(ngModel)]="cart.amount"
-              (ngModelChange)="updateTotalAmount()"
+              (ngModelChange)="updateCartAmount(cart)"
             />
           </div>
         </div>
       </div>
+      <hr class="hr" />
       <h2>Total: ${{ totalAmount }}</h2>
     </div>
     <div class="form-margin">

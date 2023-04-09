@@ -13,8 +13,10 @@ export class CartService {
     this.cartList.push(product);
   }
 
-  deleteFromCart(product: Product): void {
-    this.cartList = this.cartList.filter((cart) => cart.id !== product.id);
+  deleteFromCart(product: Product): Product[] {
+    return (this.cartList = this.cartList.filter(
+      (cart) => cart.id !== product.id
+    ));
   }
 
   getCartList(): Product[] {
