@@ -3,7 +3,7 @@
     type="image"
     class="product-image"
     [src]="product.url"
-    (click)="showProduct(product)"
+    routerLink="/product/{{ product.id }}"
   />
 
   <h4>{{ product.name }}</h4>
