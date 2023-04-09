@@ -1,1 +1,31 @@
-<p>product-item-detail works!</p>
+<div class="detail-container">
+  <img [src]="product.url" />
+  <div class="detail-item">
+    <h3>{{ product.name }}</h3>
+    <p>${{ product.price }}</p>
+    <p>{{ product.description }}</p>
+
+    <div class="input-group">
+      <label class="input-group-text" for="amountSelector">Amount:</label>
+      <select
+        class="form-select form-control"
+        name="amount"
+        id="amountSelector"
+        [(ngModel)]="product.amount"
+      >
+        <option *ngFor="let i of amountList" [value]="i">{{ i }}</option>
+      </select>
+    </div>
+    <br />
+    <button class="btn btn-primary form-control" (click)="addToCart()">
+      Add to cart
+    </button>
+    <br />
+    <div class="back-link">
+      <a routerLink="/">
+        <i class="bi bi-arrow-left"></i>
+        Back to product list.
+      </a>
+    </div>
+  </div>
+</div>

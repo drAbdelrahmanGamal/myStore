@@ -1,6 +1,13 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
 img {
   border-radius: 10px;
   width: 320px;
+}
+
+a {
+  color: #33b5e5;
+  text-decoration: none;
 }
 
 .select-input {
