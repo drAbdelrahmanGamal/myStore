@@ -1,1 +1,41 @@
-<p>cart works!</p>
+<div class="cart-container">
+  <ng-template [ngIf]="cartList.length > 0" [ngIfElse]="embty_cart_message">
+    <div class="cart-panel">
+      <div class="cart-item" *ngFor="let cart of cartList">
+        <img [src]="cart.url" [alt]="cart.description" />
+        <div class="cart-item-details">
+          <h4>{{ cart.name }}</h4>
+          <p>${{ cart.price }}</p>
+          <div class="input-group">
+            <label class="input-group-text" for="amountInput">Amount:</label>
+            <input
+              type="number"
+              class="form-control number-input"
+              id="amountInput"
+              [(ngModel)]="cart.amount"
+              (ngModelChange)="updateTotalAmount()"
+            />
+          </div>
+        </div>
+      </div>
+      <h2>Total: ${{ totalAmount }}</h2>
+    </div>
+    <div class="form-margin">
+      <form></form>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #embty_cart_message>
+  <div class="empty-cart-message">
+    <h2>Opps!</h2>
+    <p>It seems that you haven't any product in your cart</p>
+    <p>yuo can find products in product list to add it to your cart</p>
+    <div class="back-link">
+      <a routerLink="/">
+        <i class="bi bi-arrow-left"></i>
+        Back to product list.
+      </a>
+    </div>
+  </div>
+</ng-template>

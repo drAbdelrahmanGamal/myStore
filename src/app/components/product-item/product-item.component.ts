@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from 'src/app/models/product';
 
 @Component({
@@ -8,12 +8,11 @@ import { Product } from 'src/app/models/product';
 })
 export class ProductItemComponent {
   @Input() product: Product = new Product();
+  @Output() addProduct = new EventEmitter<Product>();
+
   amountList: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  showProduct(product: Product) {
-    alert(`you chose ${product.name}`);
-  }
   addToCart(product: Product) {
-    alert('Added to cart!');
+    this.addProduct.emit(product);
   }
 }

@@ -1,6 +1,13 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
 img {
   width: 100px;
   border-radius: 10px;
+}
+
+a {
+  color: #33b5e5;
+  text-decoration: none;
 }
 
 .form-margin {
@@ -39,7 +46,11 @@ img {
 }
 
 .empty-cart-message {
-  display: flex;
+  text-align: center;
   justify-content: center;
   margin-top: 64px;
+}
+
+.back-link {
+  margin-top: 8px;
 }
