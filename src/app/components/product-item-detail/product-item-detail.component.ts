@@ -34,13 +34,16 @@ export class ProductItemDetailComponent implements OnInit {
   }
 
   addToCart(): void {
-    this.cartService.addToCart(this.product);
-    alert(
-      `${this.product.amount} items of "${
-        this.product.name
-      }" was added to your cart with price $${
-        this.product.price * this.product.amount
-      }`
-    );
+    if (this.cartService.addToCart(this.product)) {
+      alert(
+        `${this.product.amount} items of "${
+          this.product.name
+        }" was added to your cart with price $${
+          this.product.price * this.product.amount
+        }`
+      );
+    } else {
+      alert(`this produc is already added to your cart before`);
+    }
   }
 }

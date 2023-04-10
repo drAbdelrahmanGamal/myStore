@@ -30,11 +30,14 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product: Product): void {
-    this.cartService.addToCart(product);
-    alert(
-      `${product.amount} items of "${
-        product.name
-      }" was added to your cart with price $${product.price * product.amount}`
-    );
+    if (this.cartService.addToCart(product)) {
+      alert(
+        `${product.amount} items of "${
+          product.name
+        }" was added to your cart with price $${product.price * product.amount}`
+      );
+    } else {
+      alert(`this produc is already added to your cart before`);
+    }
   }
 }

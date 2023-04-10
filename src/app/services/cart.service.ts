@@ -9,8 +9,11 @@ export class CartService {
 
   constructor() {}
 
-  addToCart(product: Product): void {
+  addToCart(product: Product): boolean {
+    if (this.cartList.filter((cart) => cart.id === product.id).length > 0)
+      return false;
     this.cartList.push(product);
+    return true;
   }
 
   deleteFromCart(product: Product): Product[] {
