@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
+import { User } from 'src/app/models/user';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -8,8 +9,10 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+  user: User = new User();
   cartList: Product[] = [];
   totalAmount: number = 0;
+  confirmed: boolean = false;
 
   constructor(private cartService: CartService) {}
 
@@ -26,5 +29,11 @@ export class CartComponent implements OnInit {
   updateTotalAmount(): void {
     this.totalAmount = 0;
     this.cartList.map((cart) => (this.totalAmount += cart.price * cart.amount));
+  }
+
+  confirmOrder(): void {
+    this.confirmed = true;
+    this.cartService.clearCartList();
+    this.cartList = [];
   }
 }

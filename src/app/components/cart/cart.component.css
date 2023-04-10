@@ -10,10 +10,6 @@ a {
   text-decoration: none;
 }
 
-.form-margin {
-  margin-bottom: 12px;
-}
-
 .cart-item {
   display: flex;
   flex-direction: row;

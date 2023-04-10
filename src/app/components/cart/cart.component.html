@@ -1,4 +1,4 @@
-<div class="cart-container">
+<div class="cart-container" *ngIf="!confirmed">
   <ng-template [ngIf]="cartList.length > 0" [ngIfElse]="embty_cart_message">
     <div class="cart-panel">
       <div class="cart-item" *ngFor="let cart of cartList">
@@ -18,25 +18,27 @@
           </div>
         </div>
       </div>
+
       <hr class="hr" />
       <h2>Total: ${{ totalAmount }}</h2>
     </div>
-    <div class="form-margin">
-      <form></form>
+
+    <app-cart-form [user]="user" (onSubmit)="(confirmOrder)"></app-cart-form>
+  </ng-template>
+
+  <ng-template #embty_cart_message>
+    <div class="empty-cart-message">
+      <h1 class="mb-3">Opps!</h1>
+      <p>It seems that you haven't any product in your cart</p>
+      <p>yuo can find products in product list to add it to your cart</p>
+      <div class="back-link">
+        <a routerLink="/">
+          <i class="bi bi-arrow-left"></i>
+          Back to product list.
+        </a>
+      </div>
     </div>
   </ng-template>
 </div>
-
-<ng-template #embty_cart_message>
-  <div class="empty-cart-message">
-    <h2>Opps!</h2>
-    <p>It seems that you haven't any product in your cart</p>
-    <p>yuo can find products in product list to add it to your cart</p>
-    <div class="back-link">
-      <a routerLink="/">
-        <i class="bi bi-arrow-left"></i>
-        Back to product list.
-      </a>
-    </div>
-  </div>
-</ng-template>
+<app-confirmation *ngIf="confirmed" [user]="user" [totalAmount]="totalAmount">
+</app-confirmation>
