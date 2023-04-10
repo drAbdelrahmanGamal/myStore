@@ -22,8 +22,13 @@ export class CartComponent implements OnInit {
   }
 
   updateCartAmount(cart: Product): void {
-    if (cart.amount <= 0) this.cartList = this.cartService.deleteFromCart(cart);
+    if (cart.amount <= 0) this.deleteFromCart(cart);
     this.updateTotalAmount();
+  }
+
+  deleteFromCart(cart: Product): void {
+    this.cartList = this.cartService.deleteFromCart(cart);
+    alert(`${cart.name} will be removed from the cart`);
   }
 
   updateTotalAmount(): void {
