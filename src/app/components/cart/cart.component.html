@@ -23,7 +23,7 @@
       <h2>Total: ${{ totalAmount }}</h2>
     </div>
 
-    <app-cart-form [user]="user" (onSubmit)="(confirmOrder)"></app-cart-form>
+    <app-cart-form [user]="user" (onSubmit)="confirmOrder()"></app-cart-form>
   </ng-template>
 
   <ng-template #embty_cart_message>
