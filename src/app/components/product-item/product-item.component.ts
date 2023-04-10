@@ -8,7 +8,7 @@ import { Product } from 'src/app/models/product';
 })
 export class ProductItemComponent {
   @Input() product: Product = new Product();
-  @Output() addProduct = new EventEmitter<Product>();
+  @Output() addProduct: EventEmitter<Product> = new EventEmitter();
 
   amountList: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
