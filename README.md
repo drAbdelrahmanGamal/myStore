@@ -4,6 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This project is a scalable front end framework for stores.
 
+## Installing project dependancies
+
+Run `npm install` to install all required dependancies
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
